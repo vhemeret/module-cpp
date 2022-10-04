@@ -6,7 +6,7 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/10/03 04:52:03 by vahemere         ###   ########.fr        #
+#    Updated: 2022/10/04 04:06:34 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,3 +21,8 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir))
 megaphone.cpp \
+
+all: $(NAME)
+
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS)
