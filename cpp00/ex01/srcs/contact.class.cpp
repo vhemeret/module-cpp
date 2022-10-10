@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 03:04:04 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/10 03:56:06 by vahemere         ###   ########.fr       */
+/*   Created: 2022/10/05 03:40:11 by vahemere          #+#    #+#             */
+/*   Updated: 2022/10/10 04:02:47 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#include "../inc/phonebook.hpp"
 
-class Phonebook
+Contact::Contact(void)
 {
+	return;
+}
 
-public :
-	
-	Phonebook(void);
-	~Phonebook(void);
-	void	ADD_Contact(void);
-	void	SEARCH_Contac(void);
+Contact::~Contact(void)
+{
+	return;
+}
 
-private :
-	
-	Contact _contact[8];
-	int		_i;
-};
+void	Contact::set_first_name(std::string &first_name)
+{
+	this->_first_name = first_name;
+}
 
-#endif
+void	Contact::set_last_name(std::string &last_name)
+{
+	this->_last_name = last_name;
+}

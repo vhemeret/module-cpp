@@ -6,11 +6,11 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 03:32:10 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/04 04:02:16 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/08 22:25:07 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "../inc/phonebook.hpp"
 
 static void phoneboook_menu(void)
 {
