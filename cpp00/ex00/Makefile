@@ -6,7 +6,7 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/10/04 16:36:29 by vahemere         ###   ########.fr        #
+#    Updated: 2022/10/12 14:39:17 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ NAME = megaphone
 
 OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
-#INC_DIR = $(shell find inc -type d)
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir))
 SRCS = megaphone.cpp \

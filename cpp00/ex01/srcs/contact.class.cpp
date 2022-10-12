@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 03:40:11 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/10 04:02:47 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:37:15 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,27 @@ Contact::~Contact(void)
 	return;
 }
 
-void	Contact::set_first_name(std::string &first_name)
+void	Contact::set_first_name(std::string &input)
 {
-	this->_first_name = first_name;
+	this->_first_name = input;
 }
 
-void	Contact::set_last_name(std::string &last_name)
+void	Contact::set_last_name(std::string &input)
 {
-	this->_last_name = last_name;
+	this->_last_name = input;
+}
+
+void	Contact::set_nickname(std::string &input)
+{
+	this->_nickname = input;
+}
+
+void	Contact::set_phone_number(long &digits_input)
+{
+	this->_phone_number = digits_input;
+}
+
+void	Contact::set_darkest_secret(std::string &input)
+{
+	this->_darkest_secret = input;
 }

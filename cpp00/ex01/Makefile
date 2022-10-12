@@ -6,18 +6,17 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/10/05 01:51:52 by vahemere         ###   ########.fr        #
+#    Updated: 2022/10/12 18:00:15 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
 OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
-INC_DIR = $(shell find inc -type d)
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir))
-SRCS = phonebook.cpp \
+SRCS = phonebook.cpp contact.class.cpp phonebook.class.cpp \
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 DEPS = $(OBJS:%.o=%.d)
