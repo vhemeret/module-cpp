@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 03:32:10 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/12 18:11:35 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/13 17:56:12 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ int main (void)
 	{
 		if (input.compare("EXIT") == 0)
 			return (0);
-		if (input.compare("ADD") == 0)
+		else if (input.compare("ADD") == 0)
 			instance.ADD_Contact();
 		else if (input.compare("SEARCH") == 0)
 			instance.SEARCH_Contact();
 		else
 		{
 			std::cout << std::endl;
-			std::cout << "Please type : \"ADD\", \"SEARCH\" OR \"EXIT\"" << std::endl;
-			phoneboook_menu();
+			std::cout << "\033[0;31mPlease type : \"ADD\", \"SEARCH\" OR \"EXIT\"\033[0m" << std::endl;
 		}
+		phoneboook_menu();
 	}
 	return (0);
 }

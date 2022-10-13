@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 03:37:25 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/12 17:36:46 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/13 18:09:20 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,108 +22,129 @@ Phonebook::~Phonebook(void)
 	return;
 }
 
+int	check_string_digits(std::string str)
+{
+	int				i = -1;
+	unsigned long	size = 0;
+	
+	size = str.size();
+	if (size)
+	{
+		while ((unsigned long)++i < size)
+			if (!std::isdigit(str.at(i)))
+				return (0);
+		return (1);
+	}
+	return (0);
+}
+
 std::string	ask_first_name(void)
 {
 	std::string	input;
 
-	std::cout << "First Name: " << std::endl;
-	std::cin >> input;
-	if (input.length() == 0)
+	std::cout << "\033[0;36mFirst Name: \033[0m";
+	while (std::getline(std::cin, input))
 	{
-		while (input.length() == 0)
+		if (input.length() == 0)
 		{
-			std::cout << "Please type your first name." << std::endl;
-			std::cout << "First Name: " << std::endl;
-			std::cin >> input;
+			std::cout << "\033[0;31mPlease type you first name.\033[0m" << std::endl;
+			std::cout << "\033[0;36mFirst Name: \033[0m";
+		}
+		else
+		{
+			std::cout << std::endl;
+			return (input);
 		}
 	}
-	std::cout << std::endl << std::endl;
-	return (input);
+	return (NULL);
 }
 
 std::string	ask_last_name(void)
 {
-	std::string input;
+	std::string	input;
 
-	std::cout << "Last Name: " << std::endl;
-	std::cin >> input;
-	if (input.length() == 0)
+	std::cout << "\033[0;36mLast Name: \033[0m";
+	while (std::getline(std::cin, input))
 	{
-		while (input.length() == 0)
+		if (input.length() == 0)
 		{
-			std::cout << "Please type your last name." << std::endl;
-			std::cout << "Last Name: " << std::endl;
-			std::cin >> input;
+			std::cout << "\033[0;31mPlease type you last name.\033[0m" << std::endl;
+			std::cout << "\033[0;36mLast Name: \033[0m";
+		}
+		else
+		{
+			std::cout << std::endl;
+			return (input);
 		}
 	}
-	std::cout << std::endl << std::endl;
-	return (input);
+	return (NULL);
 }
 
 std::string	ask_nickname(void)
 {
-	std::string input;
+	std::string	input;
 
-	std::cout << "Nickname: " << std::endl;
-	std::cin >> input;
-	if (input.length() == 0)
+	std::cout << "\033[0;36mNickname: \033[0m";
+	while (std::getline(std::cin, input))
 	{
-		while (input.length() == 0)
+		if (input.length() == 0)
 		{
-			std::cout << "Please type your Nickname." << std::endl;
-			std::cout << "Nickname: " << std::endl;
-			std::cin >> input;
+			std::cout << "\033[0;31mPlease type you nickname.\033[0m" << std::endl;
+			std::cout << "\033[0;36mNickname: \033[0m";
+		}
+		else
+		{
+			std::cout << std::endl;
+			return (input);
 		}
 	}
-	std::cout << std::endl << std::endl;
-	return (input);
+	return (NULL);
 }
 
-long	ask_phone_number(void)
+std::string	ask_phone_number(void)
 {
-	long input;
+	std::string	input;
 
-	std::cout << "Phone Number: " << std::endl;
-	std::cin >> input;
-	if (!isdigit((int)input))
+	std::cout << "\033[0;36mPhone Number: \033[0m";
+	while (std::getline(std::cin, input))
 	{
-		while (!isdigit((int)input))
+		if (!check_string_digits(input))
 		{
-			std::cout << "Please type your Phone Number." << std::endl;
-			std::cout << "Phone Number: " << std::endl;
-			std::cin >> input;
+			std::cout << "\033[0;31mPlease type a correct phone number.\033[0m" << std::endl;
+			std::cout << "\033[0;36mPhone Number: \033[0m";
+		}
+		else
+		{
+			std::cout << std::endl;
+			return (input);
 		}
 	}
-	std::cout << std::endl << std::endl;
-	return (input);
+	return (NULL);
 }
 
 std::string	ask_darkest_secret(void)
 {
-	std::string input;
+	std::string	input;
 
-	std::cout << "Darkest Secret: " << std::endl;
-	std::cin >> input;
-	if (input.length() == 0)
+	std::cout << "\033[0;36mDarkest Secret: \033[0m";
+	while (std::getline(std::cin, input))
 	{
-		while (input.length() == 0)
+		if (input.length() == 0)
 		{
-			std::cout << "Please type your Darkest Secret" << std::endl;
-			std::cout << "Darkest Secret: " << std::endl;
-			std::cin >> input;
+			std::cout << "\033[0;31mPlease type you darkest secret.\033[0m" << std::endl;
+			std::cout << "\033[0;36mDarkest Secret: \033[0m";
 		}
+		else
+			return (input);
 	}
-	std::cout << std::endl << std::endl;
-	return (input);
+	return (NULL);
 }
 
 void	Phonebook::ADD_Contact(void)
 {
 	std::string	input;
-	long		digits_input;
-	// int			index = 0;
 
-	if (this->_i == 8)
+	if (this->_i == 7)
 		this->_i = 0;
 	input = ask_first_name();
 	this->_contact[this->_i].set_first_name(input);
@@ -131,10 +152,11 @@ void	Phonebook::ADD_Contact(void)
 	this->_contact[this->_i].set_last_name(input);
 	input = ask_nickname();
 	this->_contact[this->_i].set_nickname(input);
-	digits_input = ask_phone_number();
-	this->_contact[this->_i].set_phone_number(digits_input);
+	input = ask_phone_number();
+	this->_contact[this->_i].set_phone_number(input);
 	input = ask_darkest_secret();
 	this->_contact[this->_i].set_darkest_secret(input);
+	std::cout << "\033[0;32mContact added.\033[0m" << std::endl << std::endl;
 	this->_i += 1;
 }
 
@@ -167,6 +189,9 @@ void	Phonebook::SEARCH_Contact(void)
 			SEARCH_Contact();
 	}
 	else
+	{
 		SEARCH_Contact();
+		return ;	
+	}
 	// std::cout << "Do you want to see another contact ? (type: yes/no)" << std::endl;
 }
