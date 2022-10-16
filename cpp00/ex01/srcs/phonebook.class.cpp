@@ -6,13 +6,13 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 03:37:25 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/13 18:09:20 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/16 22:26:12 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/phonebook.hpp"
 
-Phonebook::Phonebook(void): _i(0)
+Phonebook::Phonebook(void): _i(-1)
 {
 	return;
 }
@@ -142,56 +142,81 @@ std::string	ask_darkest_secret(void)
 
 void	Phonebook::ADD_Contact(void)
 {
+	int			i;
 	std::string	input;
 
-	if (this->_i == 7)
-		this->_i = 0;
+	this->_i++;
+	i = this->_i;
+	if (this->_i >= 8)
+	{
+		this->_i = 8;
+		i = 0;
+	}
 	input = ask_first_name();
-	this->_contact[this->_i].set_first_name(input);
+	this->_contact[i].set_first_name(input);
 	input = ask_last_name();
-	this->_contact[this->_i].set_last_name(input);
+	this->_contact[i].set_last_name(input);
 	input = ask_nickname();
-	this->_contact[this->_i].set_nickname(input);
+	this->_contact[i].set_nickname(input);
 	input = ask_phone_number();
-	this->_contact[this->_i].set_phone_number(input);
+	this->_contact[i].set_phone_number(input);
 	input = ask_darkest_secret();
-	this->_contact[this->_i].set_darkest_secret(input);
+	this->_contact[i].set_darkest_secret(input);
 	std::cout << "\033[0;32mContact added.\033[0m" << std::endl << std::endl;
-	this->_i += 1;
 }
 
 void	Phonebook::SEARCH_Contact(void)
 {
-	int			index_contact;
-	static int	display = 0;
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string phone_number;
-	std::string darkest_secret;
+	std::string	input;
+	int			contact = 0;
 	
-	if (display == 0)
+	std::cout << "\033[0;35m ___________________________________________ " << std::endl;
+	std::cout << "|     index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << " ___________________________________________ " << std::endl;
+	for (int i = 0; i < this->_i; i++)
 	{
-		std::cout << " ------------------------------------------- " << std::endl;
-		std::cout << "| index | First Name | Last Name | Nickname |" << std::endl;
-		std::cout << " ------------------------------------------- " << std::endl;
-		display++;
-	}
-	std::cout << "Put index of contact: ";
-	std::cin >> index_contact;
-	if (isdigit(index_contact))
-	{
-		if (index_contact >= 0 && index_contact <= 8)
-		{
-			std::cout << "index found" << std::endl;
-		}
+		std::cout << '|';
+		std::cout << "         " << i << '|';
+		if (this->_contact[i].get_first_name().size() > 10)
+			std::cout << this->_contact[i].get_first_name().substr(0, 9) + "." << '|';
 		else
-			SEARCH_Contact();
+			std::cout << std::setw(10) << this->_contact[i].get_first_name() << '|';
+		if (this->_contact[i].get_last_name().size() > 10)
+			std::cout << this->_contact[i].get_last_name().substr(0, 9) + "." << '|';
+		else
+			std::cout << std::setw(10) << this->_contact[i].get_last_name() << '|';
+		if (this->_contact[i].get_nickname().size() > 10)
+			std::cout << this->_contact[i].get_nickname().substr(0, 9) + "." << '|' << std::endl;
+		else
+			std::cout << std::setw(10) << this->_contact[i].get_nickname() << '|' << std::endl;
+		std::cout << " ___________________________________________ " << std::endl;
+	}
+	std::cout << "\033[0m" << std::endl;
+	std::cout << "\033[0;36mPut index of contact: \033[0m";
+	getline(std::cin, input);
+	if (!check_string_digits(input))
+	{	
+		std::cout << "\033[0;31mBad format: please enter a number between 0-" << this->_i - 1 << "\033[0m" << std::endl;
+		SEARCH_Contact();
+		return ;
 	}
 	else
 	{
-		SEARCH_Contact();
-		return ;	
+		while (contact < atoi(const_cast<const char *>(input.c_str())))
+			contact++;
+		std::cout << "\033[0;35m";
+		std::cout << "First Name: " << this->_contact[contact].get_first_name() << std::endl;
+		std::cout << "Last Name: " << this->_contact[contact].get_last_name() << std::endl;
+		std::cout << "Nickname: " << this->_contact[contact].get_nickname() << std::endl;
+		std::cout << "Phone Number: " << this->_contact[contact].get_phone_number() << std::endl;
+		std::cout << "Darkest Secret: " << this->_contact[contact].get_darkest_secret();
+		std::cout << "\033[0m" << std::endl << std::endl;
 	}
-	// std::cout << "Do you want to see another contact ? (type: yes/no)" << std::endl;
+	std::cout << "Do you want to see another contact ? (type: yes/no)" << std::endl;
+	getline(std::cin, input);
+	if (strcmp(const_cast<const char *>(input.c_str()), "yes"))
+		SEARCH_Contact();
+	else
+		return;
+	std::cout << std::endl;
 }
