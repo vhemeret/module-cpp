@@ -6,11 +6,11 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 03:32:10 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/17 03:34:15 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:23:59 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/phonebook.hpp"
+#include "inc/phonebook.hpp"
 
 static void phoneboook_menu(void)
 {
@@ -30,9 +30,15 @@ int main (void)
 		if (input.compare("EXIT") == 0)
 			return (0);
 		else if (input.compare("ADD") == 0)
-			instance.ADD_Contact();
+		{
+			if (!instance.ADD_Contact())
+				return (0);
+		}
 		else if (input.compare("SEARCH") == 0)
-			instance.SEARCH_Contact();
+		{
+			if (!instance.SEARCH_Contact())
+				return (0);
+		}
 		else
 		{
 			std::cout << std::endl;

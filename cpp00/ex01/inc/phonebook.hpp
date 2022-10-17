@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 03:04:16 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/17 03:23:48 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/17 16:44:34 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #include "contact.class.hpp"
 #include <iostream>
 #include <iomanip>
-#include <signal.h>
+#include <cstring>
+#include <stdlib.h>
 #include "phonebook.class.hpp"
 
 #endif

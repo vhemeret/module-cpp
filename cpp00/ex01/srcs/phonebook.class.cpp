@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 03:37:25 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/17 03:53:12 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:22:18 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ std::string	ask_first_name(void)
 			return (input);
 		}
 	}
-	return (NULL);
+	return ("");
 }
 
 std::string	ask_last_name(void)
@@ -77,7 +77,7 @@ std::string	ask_last_name(void)
 			return (input);
 		}
 	}
-	return (NULL);
+	return ("");
 }
 
 std::string	ask_nickname(void)
@@ -98,7 +98,7 @@ std::string	ask_nickname(void)
 			return (input);
 		}
 	}
-	return (NULL);
+	return ("");
 }
 
 std::string	ask_phone_number(void)
@@ -119,7 +119,7 @@ std::string	ask_phone_number(void)
 			return (input);
 		}
 	}
-	return (NULL);
+	return ("");
 }
 
 std::string	ask_darkest_secret(void)
@@ -137,10 +137,10 @@ std::string	ask_darkest_secret(void)
 		else
 			return (input);
 	}
-	return (NULL);
+	return ("");
 }
 
-void	Phonebook::ADD_Contact(void)
+int	Phonebook::ADD_Contact(void)
 {
 	int			i;
 	static int	call = 0;
@@ -155,28 +155,46 @@ void	Phonebook::ADD_Contact(void)
 	else
 		this->_i++;
 	input = ask_first_name();
-	this->_contact[i].set_first_name(input);
+	if (input.empty())
+		return (0);
+	else
+		this->_contact[i].set_first_name(input);
 	input = ask_last_name();
-	this->_contact[i].set_last_name(input);
+	if (input.empty())
+		return (0);
+	else
+		this->_contact[i].set_last_name(input);
 	input = ask_nickname();
-	this->_contact[i].set_nickname(input);
+	if (input.empty())
+		return (0);
+	else
+		this->_contact[i].set_nickname(input);
 	input = ask_phone_number();
-	this->_contact[i].set_phone_number(input);
+	if (input.empty())
+		return (0);
+	else
+		this->_contact[i].set_phone_number(input);
 	input = ask_darkest_secret();
-	this->_contact[i].set_darkest_secret(input);
+	if (input.empty())
+		return (0);
+	else
+		this->_contact[i].set_darkest_secret(input);
 	std::cout << "\033[0;32mContact added.\033[0m" << std::endl << std::endl;
 	call++;
+	return (1);
 }
 
-void	Phonebook::SEARCH_Contact(void)
+int	Phonebook::SEARCH_Contact(void)
 {
 	std::string	input;
 	int			contact = 0;
 	
+/*==================================== DISPLAY PHONEBOOK SUMMARY ==========================================*/
+	
 	if (this->_i == 0)
 	{
 		std::cout << "\033[0;31mEmpty Phonebook. \033[0m" << std::endl;
-		return ;
+		return (1);
 	}
 	std::cout << "\033[0;35m";
 	std::cout << " ___________________________________________ " << std::endl;
@@ -201,14 +219,20 @@ void	Phonebook::SEARCH_Contact(void)
 		std::cout << " ___________________________________________ " << std::endl;
 	}
 	std::cout << "\033[0m" << std::endl;
+	
+/*=========================================================================================================*/
+
+/*========================================= DISPLAY CONTACT ===============================================*/
+
 	std::cout << "\033[0;36mPut index of contact: \033[0m";
 	getline(std::cin, input);
-	if (!check_string_digits(input) || atoi(const_cast<const char *>(input.c_str())) < 0
-		|| atoi(const_cast<const char *>(input.c_str())) > this->_i - 1)
+	if (std::cin.eof())
+		return (0);
+	if (!check_string_digits(input) || atoi(const_cast<const char *>(input.c_str())) < 0 || atoi(const_cast<const char *>(input.c_str())) > this->_i - 1)
 	{	
 		std::cout << "\033[0;31mBad format: please enter a number between 0-" << this->_i - 1 << "\033[0m" << std::endl;
 		SEARCH_Contact();
-		return ;
+		return (1);
 	}
 	else
 	{
@@ -224,9 +248,15 @@ void	Phonebook::SEARCH_Contact(void)
 	}
 	std::cout << "Do you want to see another contact ? (yes/no): ";
 	getline(std::cin, input);
+	if (std::cin.eof())
+		return (0);
 	if (!strcmp(const_cast<const char *>(input.c_str()), "yes"))
 		SEARCH_Contact();
 	else
-		return;
+		return (1);
 	std::cout << std::endl;
+	
+/*=========================================================================================================*/
+
+	return (1);
 }

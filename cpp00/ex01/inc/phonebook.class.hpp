@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 03:04:04 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/12 14:22:39 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:11:18 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ public :
 	
 	Phonebook(void);
 	~Phonebook(void);
-	void	ADD_Contact(void);
-	void	SEARCH_Contact(void);
+	int	ADD_Contact(void);
+	int	SEARCH_Contact(void);
 
 private :
 	
