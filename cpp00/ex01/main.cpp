@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 03:32:10 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/17 17:23:59 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:31:11 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 static void phoneboook_menu(void)
 {
-	std::cout << "ADD : Add someone to the Phonebook." << std::endl;
-	std::cout << "SEARCH : Search someone from the Phonebook." << std::endl;
-	std::cout << "EXIT : Quit the Phonebook." << std::endl << std::endl;
+
+	std::cout << " ______________________________________________" << std::endl;
+	std::cout << "|   ADD   | Add someone to the Phonebook.      |" << std::endl;
+	std::cout << " ----------------------------------------------" << std::endl;
+	std::cout << "|  SEARCH | Search someone from the Phonebook. |" << std::endl;
+	std::cout << " ----------------------------------------------" << std::endl;
+	std::cout << "|   EXIT  | Quit the Phonebook.                |" << std::endl;
+	std::cout << " ______________________________________________" << std::endl << std::endl;
 }
 
 int main (void)
