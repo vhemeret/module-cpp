@@ -6,13 +6,13 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 03:37:25 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/16 22:26:12 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/17 03:53:12 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/phonebook.hpp"
 
-Phonebook::Phonebook(void): _i(-1)
+Phonebook::Phonebook(void): _i(0)
 {
 	return;
 }
@@ -143,15 +143,17 @@ std::string	ask_darkest_secret(void)
 void	Phonebook::ADD_Contact(void)
 {
 	int			i;
+	static int	call = 0;
 	std::string	input;
 
-	this->_i++;
 	i = this->_i;
-	if (this->_i >= 8)
+	if (call >= 8)
 	{
 		this->_i = 8;
 		i = 0;
 	}
+	else
+		this->_i++;
 	input = ask_first_name();
 	this->_contact[i].set_first_name(input);
 	input = ask_last_name();
@@ -163,6 +165,7 @@ void	Phonebook::ADD_Contact(void)
 	input = ask_darkest_secret();
 	this->_contact[i].set_darkest_secret(input);
 	std::cout << "\033[0;32mContact added.\033[0m" << std::endl << std::endl;
+	call++;
 }
 
 void	Phonebook::SEARCH_Contact(void)
@@ -170,7 +173,13 @@ void	Phonebook::SEARCH_Contact(void)
 	std::string	input;
 	int			contact = 0;
 	
-	std::cout << "\033[0;35m ___________________________________________ " << std::endl;
+	if (this->_i == 0)
+	{
+		std::cout << "\033[0;31mEmpty Phonebook. \033[0m" << std::endl;
+		return ;
+	}
+	std::cout << "\033[0;35m";
+	std::cout << " ___________________________________________ " << std::endl;
 	std::cout << "|     index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << " ___________________________________________ " << std::endl;
 	for (int i = 0; i < this->_i; i++)
@@ -194,7 +203,8 @@ void	Phonebook::SEARCH_Contact(void)
 	std::cout << "\033[0m" << std::endl;
 	std::cout << "\033[0;36mPut index of contact: \033[0m";
 	getline(std::cin, input);
-	if (!check_string_digits(input))
+	if (!check_string_digits(input) || atoi(const_cast<const char *>(input.c_str())) < 0
+		|| atoi(const_cast<const char *>(input.c_str())) > this->_i - 1)
 	{	
 		std::cout << "\033[0;31mBad format: please enter a number between 0-" << this->_i - 1 << "\033[0m" << std::endl;
 		SEARCH_Contact();
@@ -212,9 +222,9 @@ void	Phonebook::SEARCH_Contact(void)
 		std::cout << "Darkest Secret: " << this->_contact[contact].get_darkest_secret();
 		std::cout << "\033[0m" << std::endl << std::endl;
 	}
-	std::cout << "Do you want to see another contact ? (type: yes/no)" << std::endl;
+	std::cout << "Do you want to see another contact ? (yes/no): ";
 	getline(std::cin, input);
-	if (strcmp(const_cast<const char *>(input.c_str()), "yes"))
+	if (!strcmp(const_cast<const char *>(input.c_str()), "yes"))
 		SEARCH_Contact();
 	else
 		return;
