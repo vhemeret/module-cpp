@@ -6,17 +6,15 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/10/20 21:13:13 by vahemere         ###   ########.fr        #
+#    Updated: 2022/10/20 21:05:18 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = Account
 
 OBJS_DIR = objs
-SRCS_DIR = $(shell find srcs -type d)
 
-vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir))
-SRCS = megaphone.cpp \
+SRCS = tests.cpp Account.cpp \
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 DEPS = $(OBJS:%.o=%.d)

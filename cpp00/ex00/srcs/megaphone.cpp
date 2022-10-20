@@ -6,11 +6,11 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 02:54:49 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/12 14:38:21 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/20 21:14:24 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/test.hpp"
+#include <iostream>
 
 int main(int ac, char **av)
 {
