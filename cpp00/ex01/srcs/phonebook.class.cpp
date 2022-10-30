@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 03:37:25 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/17 17:22:18 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/10/30 23:49:28 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ std::string	ask_darkest_secret(void)
 int	Phonebook::ADD_Contact(void)
 {
 	int			i;
+	static int	j = 0;
 	static int	call = 0;
 	std::string	input;
 
@@ -150,7 +151,10 @@ int	Phonebook::ADD_Contact(void)
 	if (call >= 8)
 	{
 		this->_i = 8;
-		i = 0;
+		if (j >= 8)
+			j = 0;
+		i = j;
+		j++;
 	}
 	else
 		this->_i++;
