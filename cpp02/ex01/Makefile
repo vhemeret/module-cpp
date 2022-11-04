@@ -6,11 +6,11 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/11/03 17:04:30 by vahemere         ###   ########.fr        #
+#    Updated: 2022/11/04 16:00:00 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = canon
+NAME = fixed
 
 OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
