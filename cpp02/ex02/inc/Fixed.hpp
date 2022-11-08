@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:18:36 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/04 18:24:57 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:14:01 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,29 +24,35 @@ class Fixed
 		Fixed(int nb);
 		Fixed(float const nb);
 		Fixed(Fixed const &copy);
-		~Fixed(void);
 		Fixed				&operator=(Fixed const &src);
+		~Fixed(void);
+		
 				/*Operator overload of comparison*/
-		Fixed				&operator>(Fixed const &src);
-		Fixed				&operator<(Fixed const &src);
-		Fixed				&operator>=(Fixed const &src);
-		Fixed				&operator<=(Fixed const &src);
-		Fixed				&operator==(Fixed const &src);
-		Fixed				&operator!=(Fixed const &src);
+		bool				operator>(Fixed const &src);
+		bool				operator<(Fixed const &src);
+		bool				operator>=(Fixed const &src);
+		bool				operator<=(Fixed const &src);
+		bool				operator==(Fixed const &src);
+		bool				operator!=(Fixed const &src);
 				/*Operator overload of arithmetics*/
-		Fixed				&operator+(Fixed const &src);
-		Fixed				&operator-(Fixed const &src);
-		Fixed				&operator*(Fixed const &src);
-		Fixed				&operator/(Fixed const &src);
+		Fixed				operator+(Fixed const &src);
+		Fixed				operator-(Fixed const &src);
+		Fixed				operator*(Fixed const &src);
+		Fixed				operator/(Fixed const &src);
+				/*Operator overload of post and pre incrementation*/
+		Fixed				operator++(void);								// pre incrementation
+		Fixed				operator++(int);							// post incrementation
+		Fixed				operator--(void);
+		Fixed				operator--(int);
 		
 		float				toFloat(void) const;
 		int					toInt(void) const;
 		int					getRawBits(void) const;
 		void				setRawBits(int const raw);
-		static int			&min(int &n1, int &n2);
-		static const int	&min(int const &n1, int const &n2);
-		static int			&max(int &n1, int &n2);
-		static const int	&max(const int &n1, const int &n2);
+		static Fixed		min(Fixed &n1,Fixed &n2);
+		static const Fixed	min(Fixed const &n1, Fixed const &n2);
+		static Fixed		max(Fixed &n1, Fixed &n2);
+		static const Fixed	max(Fixed const &n1, Fixed const &n2);
 
 	private :
 	
