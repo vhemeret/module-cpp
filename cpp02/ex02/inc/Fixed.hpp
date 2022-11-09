@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:18:36 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/08 17:14:01 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/09 19:15:23 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class Fixed
 		Fixed				operator*(Fixed const &src);
 		Fixed				operator/(Fixed const &src);
 				/*Operator overload of post and pre incrementation*/
-		Fixed				operator++(void);								// pre incrementation
+		Fixed				operator++(void);							// pre incrementation
 		Fixed				operator++(int);							// post incrementation
 		Fixed				operator--(void);
 		Fixed				operator--(int);

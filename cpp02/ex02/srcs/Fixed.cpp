@@ -6,13 +6,13 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 15:17:20 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/08 19:43:56 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/09 21:30:49 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) : _n(0)
 {
 	// std::cout << "default constructor called" << std::endl;
 	return ;
@@ -165,11 +165,12 @@ Fixed	Fixed::operator/(Fixed const &src)
 }
 
 
-				/* Operator  arithmetics */
+				/* Operator  incrementation */
 
 Fixed	Fixed::operator++(void)
 {
-	return (this->_n++);
+	this->_n++;
+	return (*this);
 }
 
 Fixed	Fixed::operator++(int)
@@ -182,12 +183,16 @@ Fixed	Fixed::operator++(int)
 
 Fixed	Fixed::operator--(void)
 {
-	return (this->_n--);
+	this->_n--;
+	return (*this);
 }
 
 Fixed	Fixed::operator--(int)
 {
-	return (this->_n--);
+	Fixed	post(*this);
+	
+	this->_n--;
+	return (post);
 }
 
 
