@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:02:14 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/14 18:35:55 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:04:58 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ class ClapTrap
 		int				check_status(void);
 		void			display_status(void);
 		
-	private:
+	protected:
 
-		std::string				_Name;
+		std::string	_Name;
 		int			_Hit_points;
 		int			_Energy_points;
 		int			_Attack_damage;

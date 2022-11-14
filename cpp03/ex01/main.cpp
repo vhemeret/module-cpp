@@ -6,14 +6,16 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:01:46 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/14 18:34:44 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/14 21:38:26 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/ClapTrap.hpp"
+#include "inc/ScavTrap.hpp"
 
 int main(void)
 {
+	ScavTrap	test;
 	ClapTrap	a("jojo");
 	ClapTrap	b("toto");
 	

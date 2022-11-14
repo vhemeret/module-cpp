@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:57:52 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/14 19:31:12 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/14 22:03:44 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ClapTrap::ClapTrap(ClapTrap const &copy) : _Hit_points(copy._Hit_points), _Energ
 ClapTrap::ClapTrap(std::string Name) : _Hit_points(10), _Energy_points(10), _Attack_damage(0)
 {
 	this->_Name = Name;
-	std::cout << "Name constructor called" << std::endl;
+	std::cout << "parametric constructor called" << std::endl;
 	return;
 }
 
