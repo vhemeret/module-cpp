@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:01:46 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/14 21:38:26 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:52:44 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,38 @@
 
 int main(void)
 {
-	ScavTrap	test;
-	ClapTrap	a("jojo");
-	ClapTrap	b("toto");
+	ScavTrap	b1;
+	ScavTrap	b2("toto");
 	
-	a.display_status();
-	b.display_status();
+	std::cout << std::endl << std::endl;
+
+	std::cout << b1;
+	std::cout << b2;
+
+	b1.attack(b2);
+	b2.takeDamage(b1.getAttackDamage());
+
+	std::cout << b1;
+	std::cout << b2;
 	
-	a.attack(b.getName());
-	b.takeDamage(a.getAttackDamage());
-
-	a.display_status();
-	b.display_status();
+	b2.guardGate();
+	b1.attack(b2);
 	
-	a.setAttackDamage(2);
-	a.attack(b.getName());
-	b.takeDamage(a.getAttackDamage());
+	std::cout << b1;
+	std::cout << b2;
+	
+	b2.setAttackDamage(200);
+	b2.attack(b1);
+	b1.takeDamage(b2.getAttackDamage());
+	b2.guardGateOff();
 
-	a.display_status();
-	b.display_status();
+	std::cout << b1;
+	std::cout << b2;
 
-	b.beRepaired(10);
-	b.setAttackDamage(20);
-	b.attack(b.getName());
-	a.takeDamage(b.getAttackDamage());
-
-	a.display_status();
-	b.display_status();
+	b1.attack(b2);
+	
+	std::cout << b1;
+	std::cout << b2;
+	
+	std::cout << std::endl << std::endl;
 }
