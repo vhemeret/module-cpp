@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CatClass.hpp                                       :+:      :+:    :+:   */
+/*   DogClass.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 20:40:28 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/15 22:39:28 by vahemere         ###   ########.fr       */
+/*   Created: 2022/11/15 22:05:01 by vahemere          #+#    #+#             */
+/*   Updated: 2022/11/15 22:50:06 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CATCLASS_H
-# define CATCLASS_H
+#include "../inc/header.hpp"
 
-#include "Header.hpp"
-
-class Cat : public Animal
+Dog::Dog(void)
 {
-	public:
-	
-		Cat(void);
-		Cat(Cat const &src);
-		~Cat(void);
-		Cat &operator=(Cat const &src);
-};
+	this->_type = "Dog";
+	std::cout << "Dog default constructor called" << std::endl;
+	return;
+}
 
-#endif
+Dog::Dog(Dog const &src)
+{
+	*this = src;
+	std::cout << "Dog copy constructor called" << std::endl;
+	return;
+}
+
+Dog::~Dog(void)
+{
+	std::cout << "Dog destructor called" << std::endl;
+	return;
+}
+
+Dog	&Dog::operator=(Dog const &src)
+{
+	this->_type = src._type;
+	return *this;
+}
