@@ -6,11 +6,11 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:04:34 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/15 22:39:55 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:40:46 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/header.hpp"
+#include "../inc/CatClass.hpp"
 
 Cat::Cat(void)
 {
@@ -19,9 +19,9 @@ Cat::Cat(void)
 	return;
 }
 
-Cat::Cat(Cat const &src)
+Cat::Cat(Cat const &src) : Animal(src)
 {
-	*this = src;
+	this->_type = src._type;
 	std::cout << "Cat copy constructor called" << std::endl;
 	return;
 }
@@ -36,4 +36,9 @@ Cat	&Cat::operator=(Cat const &src)
 {
 	this->_type = src._type;
 	return *this;
+}
+
+void	Cat::makeSound(void) const
+{
+	std::cout << "Meow Meow" << std::endl << std::endl;
 }

@@ -6,11 +6,11 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:03:32 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/15 22:31:55 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:40:23 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/header.hpp"
+#include "../inc/Header.hpp"
 
 Animal::Animal(void) : _type("Animal")
 {
@@ -37,7 +37,12 @@ Animal	&Animal::operator=(Animal const &src)
 	return *this;
 }
 
-void	Animal::makeSound(void)
+std::string	Animal::getType(void) const
 {
-	std::cout << "Cats don't bark" << std::endl;
+	return (this->_type);
+}
+
+void	Animal::makeSound(void) const
+{
+	std::cout << "animal sound" << std::endl << std::endl;
 }

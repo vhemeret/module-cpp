@@ -6,17 +6,17 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/11/15 20:32:14 by vahemere         ###   ########.fr        #
+#    Updated: 2022/11/17 18:29:02 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FragTrap
+NAME = Animal
 
 OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir))
-SRCS = main.cpp  \
+SRCS = main.cpp AnimalClass.cpp CatClass.cpp DogClass.cpp \
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 DEPS = $(OBJS:%.o=%.d)
