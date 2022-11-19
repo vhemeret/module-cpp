@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CatClass.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 20:40:28 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/19 15:27:15 by vahemere         ###   ########.fr       */
+/*   Created: 2022/11/19 21:08:37 by vahemere          #+#    #+#             */
+/*   Updated: 2022/11/19 23:17:10 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CATCLASS_H
-# define CATCLASS_H
+#ifndef WRONGCAT_H
+# define WRONGCAT_H
 
 #include "Header.hpp"
 
-class Cat : public Animal
+class WrongCat :  public WrongAnimal
 {
-	public:
-	
-		Cat(void);
-		Cat(Cat const &src);
-		~Cat(void);
-		Cat &operator=(Cat const &src);
 
-		void	makeSound(void) const;
+	public :
 
+		WrongCat(void);
+		WrongCat(WrongCat const &src);
+		~WrongCat(void);
+		
+		WrongCat &operator=(WrongCat const &src);
+
+		void		makeSound(void) const;
 };
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:04:34 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/17 17:40:46 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/19 23:05:11 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/CatClass.hpp"
 
-Cat::Cat(void)
+Cat::Cat(void) : Animal()
 {
 	this->_type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;

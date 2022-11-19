@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CatClass.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 20:40:28 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/19 15:27:15 by vahemere         ###   ########.fr       */
+/*   Created: 2022/11/19 15:30:44 by vahemere          #+#    #+#             */
+/*   Updated: 2022/11/19 23:19:28 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CATCLASS_H
-# define CATCLASS_H
+#ifndef WRONGANIMAL_H
+# define WRONGANIMAL_H
 
 #include "Header.hpp"
 
-class Cat : public Animal
+class WrongAnimal
 {
-	public:
-	
-		Cat(void);
-		Cat(Cat const &src);
-		~Cat(void);
-		Cat &operator=(Cat const &src);
+	public :
 
-		void	makeSound(void) const;
+		WrongAnimal(void);
+		WrongAnimal(WrongAnimal const &src);
+		virtual ~WrongAnimal(void);
+		
+		WrongAnimal &operator=(WrongAnimal const &src);
+
+		void		makeSound(void) const;
+		std::string	getType(void) const;
+
+	protected :
+
+		std::string	_type;
 
 };
 
