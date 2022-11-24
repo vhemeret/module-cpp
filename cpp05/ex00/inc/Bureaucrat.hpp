@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:36:08 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/23 21:17:00 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/24 21:37:10 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,26 @@ class Bureaucrat
 		Bureaucrat(Bureaucrat const &src);
 		~Bureaucrat(void);
 		
-		Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &src);
+		Bureaucrat	&operator=(Bureaucrat const &src);
 
 		std::string getName(void) const;
 		int			getGrade(void) const;
+		void		incrementGrade(void);
+		void		decrementGrade(void);
 
-		class GradeTooHighException
+		class GradeTooHighException : public std::exception 
 		{
-			
+			virtual const char *what() const throw()
+			{
+				return "The grade is to high to be upgrade";
+			}
 		};
-		class GradeTooLowException
+		class GradeTooLowException : public std::exception
 		{
-			
+			const char *what() const throw()
+			{
+				return "The grade is to low to be decrease";
+			}
 		};
 
 	private :
@@ -44,5 +52,7 @@ class Bureaucrat
 		int 		_grade;
 	
 };
+
+std::ostream	&operator<<(std::ostream &os, Bureaucrat const &src);
 
 #endif
