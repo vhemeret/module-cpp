@@ -6,12 +6,11 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:35:45 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 15:06:17 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/28 18:22:14 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Bureaucrat"), _grade(1)
 {
@@ -69,7 +68,7 @@ int			Bureaucrat::getGrade(void) const
 	return this->_grade;
 }
 
-void	Bureaucrat::signForm(Form const &form)
+void	Bureaucrat::signForm(AForm const &form)
 {
 	if (form.getIfSigned() == true)
 		std::cout << this->_name << " Form is signed." << std::endl;

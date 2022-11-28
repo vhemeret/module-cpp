@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:06:22 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 15:04:07 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:13:45 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_H
-# define FORM_H
+#ifndef AFORM_H
+# define AFORM_H
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class Form
+class Bureaucrat;
+
+class AForm
 {
 	public :
 
-		Form(void);
-		Form(Form const &src);
-		~Form(void);
+		AForm(void);
+		AForm(AForm const &src);
+		~AForm(void);
 		
-		Form	&operator=(Form const &src);
+		AForm	&operator=(AForm const &src);
 		
-		void		beSigned(Bureaucrat const &src);
-		std::string	getName(void) const;
-		bool		getIfSigned(void) const;
-		int			getGradeToSign(void) const;
-		int			getGradeToExec(void) const ;
+		void				beSigned(Bureaucrat const &src);
+		std::string			getName(void) const;
+		bool				getIfSigned(void) const;
+		int					getGradeToSign(void) const;
+		int					getGradeToExec(void) const;
+		virtual void		execute(Bureaucrat const &executor) = 0;
 		
 		class GradeTooHighException : public std::exception
 		{
@@ -48,11 +51,11 @@ class Form
 		};
 		
 	private :
-		
+
 		std::string const 	_name;
 		bool				_signed;
-		static const int			_gradeToSign = 10;
-		static const int			_gradeToExec = 1;
+		static const int	_gradeToSign = 10;
+		static const int	_gradeToExec = 1;
 };
 
 std::ostream	&operator<<(std::ostream &os, Form const &src);
