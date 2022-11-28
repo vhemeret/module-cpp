@@ -6,15 +6,16 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:35:45 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 11:54:14 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/28 15:06:17 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : _name("Bureaucrat"), _grade(1)
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;	
+	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
@@ -67,6 +68,15 @@ int			Bureaucrat::getGrade(void) const
 {
 	return this->_grade;
 }
+
+void	Bureaucrat::signForm(Form const &form)
+{
+	if (form.getIfSigned() == true)
+		std::cout << this->_name << " Form is signed." << std::endl;
+	else
+		std::cout << this->_name << " couldn't sign Form because his grade is to low." << std::endl;
+}
+
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat const &src)
 {
