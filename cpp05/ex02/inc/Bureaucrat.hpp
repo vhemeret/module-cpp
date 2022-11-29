@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:36:08 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/29 20:28:24 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:25:05 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ class Bureaucrat
 	
 		const std::string _name;
 		int 		_grade;
-		bool		_signed;
 	
 };
 

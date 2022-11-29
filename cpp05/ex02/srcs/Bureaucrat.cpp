@@ -6,18 +6,18 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:35:45 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/29 20:28:06 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 23:25:39 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("Bureaucrat"), _grade(1), _signed(false)
+Bureaucrat::Bureaucrat(void) : _name("Bureaucrat"), _grade(1)
 {
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade), _signed(false)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	std::cout << "Bureaucrat parametric constructor called" << std::endl;
 	if (grade > 150)
@@ -81,12 +81,20 @@ void	Bureaucrat::signForm(AForm &form)
 	}
 }
 
-// void	Bureaucrat::executeForm(AForm const &form)
-// {
-
-// 		form.execute(*this);
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		if (form.getIfSigned() == true)
+			if (this->_grade <= form.getGradeToExec())
+				form.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->_name << " couldn't execute the form because: " << e.what() << '\n';
+	}
 	
-// }
+}
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat const &src)
 {
