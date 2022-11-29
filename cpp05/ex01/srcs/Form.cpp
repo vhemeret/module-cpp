@@ -6,15 +6,20 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:29:08 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 15:58:33 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:24:25 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Form.hpp"
 
-Form::Form(void) : _name("Form"), _signed(false)
+Form::Form(void) : _name("Form"), _signed(false), _gradeToSign(10), _gradeToExec(1)
 {
 	std::cout << "Form default constructor called" << std::endl;	
+}
+
+Form::Form(std::string const name, int gradeToSign, int gradeToExec) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+{
+	std::cout << "Form parametric constructor called" << std::endl;
 }
 
 Form::Form(Form const &src)

@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:12:42 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 16:51:52 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:58:03 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define PRESIDENTIALPARDONFORM_H
 
 #include <iostream>
+#include "AForm.hpp"
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public AForm
 {
 	public:
 
@@ -26,10 +27,11 @@ class PresidentialPardonForm
 
 		PresidentialPardonForm	&operator=(PresidentialPardonForm const &src);
 		
+		void		execute(Bureaucrat const &executor) const;
+		
 	private:
 	
 		std::string			_target;
-		bool				_signed;
 		static const int	_gradeToSign = 25;
 		static const int	_gradeToExec = 5;
 

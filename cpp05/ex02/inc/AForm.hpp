@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:06:22 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 19:13:45 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 20:33:14 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class AForm
 	public :
 
 		AForm(void);
+		AForm(std::string const name, int gradeSign, int gradeExec);
 		AForm(AForm const &src);
 		~AForm(void);
 		
@@ -33,31 +34,38 @@ class AForm
 		bool				getIfSigned(void) const;
 		int					getGradeToSign(void) const;
 		int					getGradeToExec(void) const;
-		virtual void		execute(Bureaucrat const &executor) = 0;
+		virtual void		execute(Bureaucrat const &executor) const = 0;
 		
 		class GradeTooHighException : public std::exception
 		{
 			virtual const char *what () const throw()
 			{
-				return "The grade is to high";
+				return "The grade required is to Low";
 			}
 		};
 		class GradeTooLowException : public std::exception
 		{
 			virtual const char *what() const throw()
 			{
-				return "The grade is to low";
+				return "The grade required is to High";
+			}
+		};
+		class FailedToExecException : public std::exception
+		{
+			virtual const char *what() const throw()
+			{
+				return "The bureaucrat can not execute the form.";
 			}
 		};
 		
-	private :
+	protected :
 
-		std::string const 	_name;
+		std::string const	_name;
 		bool				_signed;
-		static const int	_gradeToSign = 10;
-		static const int	_gradeToExec = 1;
+		int					_gradeToSign;
+		int					_gradeToExec;
 };
 
-std::ostream	&operator<<(std::ostream &os, Form const &src);
+std::ostream	&operator<<(std::ostream &os, AForm const &src);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:29:08 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 18:14:46 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 20:27:09 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 AForm::AForm(void) : _name("AForm"), _signed(false)
 {
 	std::cout << "AForm default constructor called" << std::endl;	
+}
+
+AForm::AForm(std::string const name, int gradeSign, int gradeExec) : _name(name), _gradeToSign(gradeSign), _gradeToExec(gradeExec)
+{
+	std::cout << "AForm parametric constructor called" << std::endl;
+	if (gradeExec < 1 || gradeSign < 1)
+		throw AForm::GradeTooHighException();
+	else if (gradeExec > 150 || gradeSign > 150)
+		throw AForm::GradeTooLowException();
 }
 
 AForm::AForm(AForm const &src)
@@ -37,7 +46,7 @@ AForm	&AForm::operator=(AForm const &src)
 
 void	AForm::beSigned(Bureaucrat const &src)
 {
-	if (src.getGrade() <= 10)
+	if (src.getGrade() <= _gradeToSign)
 		_signed = true;
 	else
 		throw AForm::GradeTooLowException();

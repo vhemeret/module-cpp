@@ -6,42 +6,26 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:34:32 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 14:59:28 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 20:32:29 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/Form.hpp"
-#include "inc/Bureaucrat.hpp"
+#include "inc/AForm.hpp"
+#include "inc/PresidentialPardonForm.hpp"
+#include "inc/PresidentialPardonForm.hpp"
+#include "inc/ShrubberyCreationForm.hpp"
+#include "inc/RobotomyRequestForm.hpp"
 
 int main(void)
 {
-		Bureaucrat	toto("toto", 11);
-		Form		contract;
+	Bureaucrat	toto("toto", 150);
+	// Bureaucrat	jojo("jojo", 2);
 	
-	std::cout << std::endl;
-	try
-	{
-		contract.beSigned(toto);
-		toto.signForm(contract);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	/* Presidential Form */
 
-	std::cout << std::endl;
-	std::cout << toto << std::endl;
-	
-	try
-	{
-		toto.incrementGrade();
-		std::cout << toto << std::endl;
-		contract.beSigned(toto);
-		toto.signForm(contract);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	
+	PresidentialPardonForm	form1("form1");
+	std::cout << "\n" << toto << std::endl;
+	toto.signForm(form1);
+	// FormPresidential.execute(toto);
+	// toto.executeForm(formPresidential);
 }

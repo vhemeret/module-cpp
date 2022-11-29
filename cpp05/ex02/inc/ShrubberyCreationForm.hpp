@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:20:42 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 18:46:12 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:58:57 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
+#include "AForm.hpp"
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public AForm
 {
 	public:
 
@@ -27,12 +27,20 @@ class ShrubberyCreationForm
 		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &src);
-		
+
+		void		execute(Bureaucrat const &executor) const;
+
+		class FileErrorException : public std::exception
+		{
+			virtual const char *what() const throw()
+			{
+				return "An error is present with the file";
+			}
+		};
+
 	private:
 	
 		std::string			_target;
-		std::fstream		_fd;
-		bool				_signed;
 		static const int	_gradeToSign = 145;
 		static const int	_gradeToExec = 137;
 

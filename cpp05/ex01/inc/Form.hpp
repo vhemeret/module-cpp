@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:06:22 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 15:57:07 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:17:41 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Form
 	public :
 
 		Form(void);
+		Form(std::string const name, int gradeToSign, int gradeToExec);
 		Form(Form const &src);
 		~Form(void);
 		
@@ -53,8 +54,8 @@ class Form
 		
 		std::string const 	_name;
 		bool				_signed;
-		static const int			_gradeToSign = 10;
-		static const int			_gradeToExec = 1;
+		int					_gradeToSign;
+		int					_gradeToExec;
 };
 
 std::ostream	&operator<<(std::ostream &os, Form const &src);

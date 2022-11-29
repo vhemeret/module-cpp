@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:36:08 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 11:47:37 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/29 20:16:11 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class Bureaucrat
 
 	private :
 	
-		const std::string _name;
-		int 		_grade;
+		const std::string	_name;
+		int 				_grade;
 	
 };
 
