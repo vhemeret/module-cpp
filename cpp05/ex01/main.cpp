@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:34:32 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 14:59:28 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:47:16 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main(void)
 	std::cout << std::endl;
 	try
 	{
-		contract.beSigned(toto);
 		toto.signForm(contract);
 	}
 	catch (std::exception &e)
@@ -36,12 +35,13 @@ int main(void)
 	{
 		toto.incrementGrade();
 		std::cout << toto << std::endl;
-		contract.beSigned(toto);
 		toto.signForm(contract);
+		std::cout << std::endl;
+		
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	
 }

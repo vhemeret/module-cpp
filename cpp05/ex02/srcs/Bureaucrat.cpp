@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:35:45 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/29 23:25:39 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:39:51 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	Bureaucrat::signForm(AForm &form)
 	}
 	catch (std::exception &e)
 	{
-		std::cout << "Form couldn't signed: " << e.what() << std::endl;
+		std::cout << "Form couldn't signed because: " << e.what() << std::endl;
 	}
 }
 
@@ -85,9 +85,7 @@ void	Bureaucrat::executeForm(AForm const &form)
 {
 	try
 	{
-		if (form.getIfSigned() == true)
-			if (this->_grade <= form.getGradeToExec())
-				form.execute(*this);
+		form.execute(*this);
 	}
 	catch(const std::exception& e)
 	{

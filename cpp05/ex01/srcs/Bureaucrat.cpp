@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:35:45 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 15:58:02 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:42:59 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,18 @@ int			Bureaucrat::getGrade(void) const
 	return this->_grade;
 }
 
-void	Bureaucrat::signForm(Form const &form)
+void	Bureaucrat::signForm(Form &form)
 {
-	if (form.getIfSigned() == true)
-		std::cout << this->_name << " Form is signed." << std::endl;
-	else
-		std::cout << this->_name << " couldn't sign Form because his grade is to low." << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << "Form signed successfull" << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Form couldn't signed because: " << e.what() << std::endl;
+	}
 }
-
 
 std::ostream	&operator<<(std::ostream &os, Bureaucrat const &src)
 {

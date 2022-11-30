@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:32:53 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/29 20:31:23 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:29:06 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,19 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-	std::string		filename = this->_target + "_shrubbery";
+	std::string		filename(this->_target + "_shrubbery");
 	std::fstream	file;
 
 	if (executor.getGrade() <= this->_gradeToExec)
 	{
 		if (ShrubberyCreationForm::getIfSigned() == true)
 		{
-			file.open(filename.c_str());
+			file.open(filename.c_str(), std::fstream::app);
 			if (!file.is_open())
 				throw ShrubberyCreationForm::FileErrorException();
 			else
 			{
-				file << "              # #### ###### ##\n"
+				file << "	              # #### ###### ##\n"
 				<< "                 ### ## ## ####### ###\n"
 				<< "               ########################\n"
 				<< "             ###########################\n"

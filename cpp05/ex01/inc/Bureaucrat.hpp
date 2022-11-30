@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 19:36:08 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/28 15:57:35 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/11/30 13:41:51 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		incrementGrade(void);
 		void		decrementGrade(void);
-		void		signForm(Form const &form);
+		void		signForm(Form &form);
 
 		class GradeTooHighException : public std::exception 
 		{
