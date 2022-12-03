@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:55:44 by vahemere          #+#    #+#             */
-/*   Updated: 2022/10/31 20:10:28 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/03 16:11:15 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ int main(int ac, char **av)
 			std::cout << "Please don't send an empty argument(s)." << std::endl;
 			return (0);
 		}
-		std::ifstream ifs(filename);
+		std::ifstream ifs(filename.c_str());
 		if (!ifs)
 		{
 			std::cout << "The input file does not exist." << std::endl;
 			return (0);
 		}
-		std::ofstream ofs(filename.append(".replace"));
+		std::ofstream ofs(filename.append(".replace").c_str());
 		while (getline(ifs, line))
 		{
 			pos = line.find(s1);
 			while (pos != std::string::npos)
 			{
-				ofs << line.substr(0, pos) << s2;
+				ofs << line.substr(0, pos) + s2;
 				line = line.substr(pos + s1.size());
 				pos = line.find(s1);
 			}

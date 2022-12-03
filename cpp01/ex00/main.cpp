@@ -16,5 +16,4 @@ int	main(void)
 {
 	newZombie("Zombheap");
 	randomChump("Zombstack");
-	return ;
 }
