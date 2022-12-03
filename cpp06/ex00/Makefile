@@ -6,17 +6,17 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/11/30 17:11:17 by vahemere         ###   ########.fr        #
+#    Updated: 2022/12/02 17:02:32 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BureauCrat
+NAME = convert
 
 OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir))
-SRCS = main.cpp \
+SRCS = main.cpp convert.cpp \
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 DEPS = $(OBJS:%.o=%.d)
