@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:11:06 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/02 17:03:25 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:29:05 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main(int ac, char **av)
 		convert	to_convert(value);
 
 		to_convert.findType();
+		to_convert.display();
 		// to_convert.convert();
 		// std::cout << to_convert << std::endl;
 	}

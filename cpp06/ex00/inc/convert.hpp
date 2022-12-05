@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:11:14 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/02 17:02:37 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/04 18:28:08 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class convert
 		convert	&operator=(convert const &src);
 
 		void	findType(void);
+		void	display(void);
 		
 	private:
 		
