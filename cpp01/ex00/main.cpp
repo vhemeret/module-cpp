@@ -14,6 +14,10 @@
 
 int	main(void)
 {
-	newZombie("Zombheap");
+	Zombie *heap = newZombie("Zombheap");
+
+	heap->announce();
 	randomChump("Zombstack");
+
+	delete	heap;
 }

@@ -17,7 +17,5 @@ Zombie	*newZombie(std::string name)
 	Zombie	*zombie;
 
 	zombie = new Zombie(name);
-	zombie->announce();
-	delete zombie;
 	return (zombie);
 }
