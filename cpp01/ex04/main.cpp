@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:55:44 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/03 16:11:15 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:08:58 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ int main(int ac, char **av)
 				pos = line.find(s1);
 			}
 			if (pos == std::string::npos)
-				ofs << line;
-			ofs << std::endl;
+				ofs << line << '\n';
 		}
 		ifs.close();
 		ofs.close();
