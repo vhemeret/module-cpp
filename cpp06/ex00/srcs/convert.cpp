@@ -6,12 +6,11 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:14:59 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/06 18:09:07 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:22:58 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/convert.hpp"
-#include <stdio.h>
 
 convert::convert(std::string value) : _value(value), _char(false), _int(false), _double(false), _float(false)
 {
@@ -107,7 +106,10 @@ void	convert::to_char(void)
 	char	c;
 
 	c = this->_value[0];
-	std::cout << "char: " << c << std::endl; 
+	if (c < CHAR_MIN || c > CHAR_MAX)
+		std::cout << "char: impossible" << std::endl; 
+	else	
+		(c > 32 && c < CHAR_MAX) ? std::cout << "char: " << c << std::endl : std::cout << "char: not displayable" << std::endl; 
 	std::cout << "int: " << static_cast<int>(c) << std::endl; 
 	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl; 
 	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl; 
@@ -118,7 +120,10 @@ void	convert::to_int(void)
 	int	nb;
 
 	nb = atoi(this->_value.c_str());
-	(isalpha(nb) || isprint(nb)) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: Non displayable" << std::endl;
+	if (nb < CHAR_MIN || nb > CHAR_MAX)
+		std::cout << "char: impossible" << std::endl; 
+	else	
+		(nb > 32 && nb < CHAR_MAX) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: not displayable" << std::endl;
 	std::cout << "int: " << nb << std::endl; 
 	std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl; 
 	std::cout << "double: " << static_cast<double>(nb) << ".0" << std::endl;
@@ -129,21 +134,26 @@ void	convert::to_double(void)
 {
 	double	nb;
 
-	nb = std::stod(this->_value.c_str());
-	(isalpha(nb) || isprint(nb)) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: Non displayable" << std::endl;
-	(static_cast<long>(nb) > INT_MIN || static_cast<long>(nb) < INT_MAX) ? std::cout << "int: " << static_cast<int>(nb) << std::endl : std::cout << "int: impossible" << std::endl;
+	nb = strtod(this->_value.c_str(), NULL);
+	if (static_cast<int>(nb) < CHAR_MIN || static_cast<int>(nb) > CHAR_MAX)
+		std::cout << "char: impossible" << std::endl; 
+	else	
+		(static_cast<int>(nb) > 32 && static_cast<int>(nb) < CHAR_MAX) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: not displayable" << std::endl;
+	(static_cast<long long>(nb) > INT_MIN && static_cast<long long>(nb) < INT_MAX) ? std::cout << "int: " << static_cast<int>(nb) << std::endl : std::cout << "int: impossible" << std::endl;
 	(nb == static_cast<int>(nb)) ? std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl : std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
 	(nb == static_cast<int>(nb)) ? std::cout << "double: " << nb << ".0" << std::endl : std::cout << "double " << nb << std::endl;
-	
 }
 
 void	convert::to_float(void)
 {
 	float	nb;
 
-	nb = std::stof(this->_value.c_str());
-	(isalpha(static_cast<int>(nb)) || isprint(static_cast<int>(nb))) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: Non displayable" << std::endl;
-	(static_cast<long long>(nb) > INT_MIN || static_cast<long long>(nb) < INT_MAX) ? std::cout << "int: " << static_cast<int>(nb) << std::endl : std::cout << "int: impossible" << std::endl; 
+	nb = strtof(this->_value.c_str(), NULL);
+	if (static_cast<int>(nb) < CHAR_MIN || static_cast<int>(nb) > CHAR_MAX)
+		std::cout << "char: impossible" << std::endl; 
+	else	
+		(static_cast<int>(nb) > 32 && static_cast<int>(nb) < CHAR_MAX) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: not displayable" << std::endl;
+	(static_cast<long>(nb) > INT_MIN && static_cast<long>(nb) < INT_MAX) ? std::cout << "int: " << static_cast<int>(nb) << std::endl : std::cout << "int: impossible" << std::endl; 
 	(nb == static_cast<int>(nb)) ? std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl : std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
 	(nb == static_cast<int>(nb)) ? std::cout << "double: " << nb << ".0" << std::endl : std::cout << "double " << nb << std::endl;
 	
@@ -167,7 +177,6 @@ void	convert::to_spec(void)
 
 void convert::converter(void)
 {
-	printf("int : %d | char %d | double %d | float %d\n", this->_int, this->_char, this->_double, this->_float);
 	if (this->_char == true)
 		return (to_char());
 	else if (this->_int == true)

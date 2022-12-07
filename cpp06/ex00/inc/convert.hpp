@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:11:14 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/06 18:06:37 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:39:09 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cstdlib>
+#include <climits>
 
 class convert
 {
