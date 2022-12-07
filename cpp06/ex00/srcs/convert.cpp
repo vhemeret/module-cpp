@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:14:59 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/04 18:55:29 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:09:07 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,21 @@ void	convert::findType(void)
 	bool	point = false;
 	long	nb;
 	int		i = 0;
-	// bool	f = false;
 	
 	if (!this->_value.compare("nan") || !this->_value.compare("nanf")
-		|| !this->_value.compare("+inf") || !this->_value.compare("-inf"))
+		|| !this->_value.compare("+inf") || !this->_value.compare("-inf")
+		|| !this->_value.compare("+inff") || !this->_value.compare("-inff"))
 	{
 		this->_float = true;
 		this->_double = true;
 		return;
 	}
-	if (lenght == 1 && isalpha(this->_value[0]))
+	if (lenght == 1 && (isalpha(this->_value[0]) || isprint(this->_value[0])))
 	{
 		this->_char = true;
 		return;
 	}
-	else if (lenght > 1)
+	else if (lenght >= 1)
 	{
 		if (this->_value[0] == '+' || this->_value[0] == '-' || isdigit(this->_value[0]) || this->_value[0] == '.') // check if valid number
 		{
@@ -92,22 +92,92 @@ void	convert::findType(void)
 		{
 			nb = strtol(this->_value.c_str(), NULL, 10);
 			if (nb > INT_MAX || nb < INT_MIN || !isdigit(this->_value[i]))
+			{
+				this->_double = true;
 				return;
+			}
 			else
 				this->_int = true;
 		}
 	}
 }
 
-void convert::display(void)
+void	convert::to_char(void)
 {
-	std::cout << "char: " << this->_char << std::endl; 
-	std::cout << "int: " << this->_int << std::endl; 
-	std::cout << "double: " << this->_double << std::endl; 
-	std::cout << "float: " << this->_float << std::endl; 
+	char	c;
+
+	c = this->_value[0];
+	std::cout << "char: " << c << std::endl; 
+	std::cout << "int: " << static_cast<int>(c) << std::endl; 
+	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl; 
+	std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl; 
 }
 
-// std::ostream	&operator<<(std::ostream os, convert const &src)
-// {
-// 	return (os);
-// }
+void	convert::to_int(void)
+{
+	int	nb;
+
+	nb = atoi(this->_value.c_str());
+	(isalpha(nb) || isprint(nb)) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: " << nb << std::endl; 
+	std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl; 
+	std::cout << "double: " << static_cast<double>(nb) << ".0" << std::endl;
+	
+}
+
+void	convert::to_double(void)
+{
+	double	nb;
+
+	nb = std::stod(this->_value.c_str());
+	(isalpha(nb) || isprint(nb)) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: Non displayable" << std::endl;
+	(static_cast<long>(nb) > INT_MIN || static_cast<long>(nb) < INT_MAX) ? std::cout << "int: " << static_cast<int>(nb) << std::endl : std::cout << "int: impossible" << std::endl;
+	(nb == static_cast<int>(nb)) ? std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl : std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
+	(nb == static_cast<int>(nb)) ? std::cout << "double: " << nb << ".0" << std::endl : std::cout << "double " << nb << std::endl;
+	
+}
+
+void	convert::to_float(void)
+{
+	float	nb;
+
+	nb = std::stof(this->_value.c_str());
+	(isalpha(static_cast<int>(nb)) || isprint(static_cast<int>(nb))) ? std::cout << "char: " << static_cast<char>(nb) << std::endl : std::cout << "char: Non displayable" << std::endl;
+	(static_cast<long long>(nb) > INT_MIN || static_cast<long long>(nb) < INT_MAX) ? std::cout << "int: " << static_cast<int>(nb) << std::endl : std::cout << "int: impossible" << std::endl; 
+	(nb == static_cast<int>(nb)) ? std::cout << "float: " << static_cast<float>(nb) << ".0f" << std::endl : std::cout << "float: " << static_cast<float>(nb) << "f" << std::endl;
+	(nb == static_cast<int>(nb)) ? std::cout << "double: " << nb << ".0" << std::endl : std::cout << "double " << nb << std::endl;
+	
+}
+
+void	convert::to_spec(void)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (!this->_value.compare("nanf") || !this->_value.compare("+inff") || !this->_value.compare("-inff"))
+	{
+		std::cout << "float: " << this->_value << std::endl;
+		std::cout << "double: " << this->_value.substr(0, (this->_value.length() - 1)) << std::endl;
+	}
+	else
+	{
+		std::cout << "float: " << this->_value << "f" << std::endl;
+		std::cout << "double: " << this->_value << std::endl;
+	}
+}
+
+void convert::converter(void)
+{
+	printf("int : %d | char %d | double %d | float %d\n", this->_int, this->_char, this->_double, this->_float);
+	if (this->_char == true)
+		return (to_char());
+	else if (this->_int == true)
+		return (to_int());
+	else if (this->_float == true && this->_double == true)
+		return (to_spec());
+	else if (this->_double == true)
+		return (to_double());
+	else if (this->_float == true)
+		return (to_float());
+	else
+		std::cout << "impossible to convert." << std::endl;
+}

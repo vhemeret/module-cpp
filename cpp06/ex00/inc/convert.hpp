@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:11:14 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/04 18:28:08 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:06:37 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ class convert
 		convert	&operator=(convert const &src);
 
 		void	findType(void);
-		void	display(void);
+		void	converter(void);
+		void	to_char(void);
+		void	to_int(void);
+		void	to_double(void);
+		void	to_float(void);
+		void	to_spec(void);
 		
 	private:
 		
@@ -39,7 +44,5 @@ class convert
 		bool		_double;
 		bool		_float;
 };
-
-std::ostream	&operator<<(std::ostream os, convert const &src);
 
 #endif
