@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.hpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 18:03:07 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/12 16:11:32 by vahemere         ###   ########.fr       */
+/*   Created: 2022/12/12 16:15:35 by vahemere          #+#    #+#             */
+/*   Updated: 2022/12/12 16:28:59 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_H
-# define DATA_H
+#ifndef BASE_H
+# define BASE_H
 
 #include <iostream>
-#include <cstdint>
 
-typedef struct Data
+class Base
 {
-	int	a;
-	int	b;
-} Data;
+	public :
+		virtual ~Base(void) {};
+};
 
 #endif

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data.hpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 18:03:07 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/12 16:11:32 by vahemere         ###   ########.fr       */
+/*   Created: 2022/12/12 16:24:58 by vahemere          #+#    #+#             */
+/*   Updated: 2022/12/12 16:49:15 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_H
-# define DATA_H
+#ifndef B_H
+# define B_H
 
-#include <iostream>
-#include <cstdint>
+#include "Base.hpp"
 
-typedef struct Data
+class B : public Base
 {
-	int	a;
-	int	b;
-} Data;
 
-#endif
+};
+
+#endif 

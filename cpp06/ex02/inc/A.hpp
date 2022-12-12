@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 17:58:42 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/10 05:17:23 by vahemere         ###   ########.fr       */
+/*   Created: 2022/12/12 16:24:58 by vahemere          #+#    #+#             */
+/*   Updated: 2022/12/12 16:26:06 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/data.hpp"
+#ifndef A_H
+# define A_H
 
-unintptr_t	serialize(data	*ptr)
-{
-	return ();
-}
+#include "Base.hpp"
 
-data	*deserialize(unintptr_t raw)
+class A : public Base
 {
-	return ();
-}
+
+};
+
+#endif 
