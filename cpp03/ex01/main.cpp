@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:01:46 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/15 15:52:44 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/10 00:42:25 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int main(void)
 	b2.attack(b1);
 	b1.takeDamage(b2.getAttackDamage());
 	b2.guardGateOff();
-
+	
 	std::cout << b1;
 	std::cout << b2;
-
+	
 	b1.attack(b2);
 	
 	std::cout << b1;

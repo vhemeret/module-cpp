@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 20:32:39 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/23 17:25:58 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/07 19:00:29 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
 
-//	AAnimal instance;
+	// AAnimal instance;
 // Class AAnimal not instanciable because it's abstract class
 	
 	std::cout << "---------- Creation array of Animal ------------" << std::endl << std::endl;

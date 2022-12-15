@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:03:32 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/23 17:27:53 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:58:27 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,4 @@ AAnimal	&AAnimal::operator=(AAnimal const &src)
 std::string	AAnimal::getType(void) const
 {
 	return (this->_type);
-}
-
-void	AAnimal::makeSound(void) const
-{
-	std::cout << "Animal sound" << std::endl << std::endl;
 }

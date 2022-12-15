@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:02:14 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/15 14:51:13 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/10 01:06:09 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string Name);
 		ClapTrap(ClapTrap const &copy);
-		~ClapTrap();
+		virtual ~ClapTrap();
 		
 		ClapTrap	&operator=(ClapTrap const &src);
 		

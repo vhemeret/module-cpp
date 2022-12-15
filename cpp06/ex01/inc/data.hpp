@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 18:03:07 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/12 16:11:32 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/16 00:00:56 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 # define DATA_H
 
 #include <iostream>
-#include <cstdint>
+#include <stdint.h>
 
 typedef struct Data
 {
-	int	a;
+	std::string	a;
 	int	b;
 } Data;
+
+uintptr_t	serialize(Data *ptr);
+Data		*deserialize(uintptr_t raw);
+
 
 #endif

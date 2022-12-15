@@ -6,7 +6,7 @@
 #    By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 04:09:30 by vahemere          #+#    #+#              #
-#    Updated: 2022/12/12 15:55:03 by vahemere         ###   ########.fr        #
+#    Updated: 2022/12/16 00:05:52 by vahemere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir))
-SRCS = main.cpp \
+SRCS = main.cpp data.cpp\
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=%.o))
 DEPS = $(OBJS:%.o=%.d)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror #-std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 #fonts color
 BLACK =      \033[30m

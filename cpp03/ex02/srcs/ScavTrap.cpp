@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:36:36 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/15 15:52:34 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/10 01:11:01 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ ScavTrap	&ScavTrap::operator=(ScavTrap const &src)
 	return *this;
 }
 
-
 /*================================================*/
+
 void	ScavTrap::guardGate(void)
 {
 	_guardGate = 1;

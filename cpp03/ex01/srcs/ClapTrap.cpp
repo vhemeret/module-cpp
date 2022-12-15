@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:57:52 by vahemere          #+#    #+#             */
-/*   Updated: 2022/11/15 15:49:30 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/10 00:39:00 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ ClapTrap	&ClapTrap::operator=(ClapTrap const &src)
 	return *this;
 }
 
-
 /*================================================*/
+
 std::string	ClapTrap::getName(void) const
 {
 	return (this->_Name);
@@ -68,16 +68,15 @@ int	ClapTrap::getAttackDamage(void) const
 	return (this->_Attack_damage);
 }
 
-
 /*================================================*/
+
 void			ClapTrap::setAttackDamage(unsigned int amount)
 {
 	this->_Attack_damage = amount;
 }
 
-
-
 /*================================================*/
+
 int	ClapTrap::check_status(void)
 {
 	if (this->_Hit_points <= 0 || this->_Energy_points <= 0)
@@ -114,9 +113,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	this->_Energy_points -= 1;
 }
 
-
-
 /*================================================*/
+
 std::ostream	&operator<<(std::ostream &os, const ClapTrap &src)
 {
 	return (os << "| " << "Name " << src.getName() << " | " 
