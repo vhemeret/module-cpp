@@ -6,7 +6,14 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 04:12:10 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/16 04:12:20 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/16 18:20:27 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "inc/Array.hpp"
+
+int main(void)
+{
+	std::cout << "Array of int: " << std::endl;
+	Array<int> integerArr(5);
+}
