@@ -6,12 +6,12 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 04:12:55 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/16 18:13:26 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/17 06:13:06 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_H
-# define ARRAY_h
+# define ARRAY_H
 
 #include <iostream>
 
@@ -25,7 +25,7 @@ class Array
 		Array(unsigned int N) : _array(new T[N]), _size(N) {}
 		Array(Array const &src) : _array(new T[src._size]), _size(src._size)
 		{
-			for (int i = 0; i < this->_size; i++)
+			for (unsigned int i = 0; i < this->_size; i++)
 				this->_array[i] = src._array[i];
 			return;
 		}
@@ -50,7 +50,7 @@ class Array
 				else
 					this->_arra = new T[src._size];
 				this->_size = src._size;
-				for (int i = 0; i < size; i++)
+				for (int i = 0; i < this->_size; i++)
 					this->_array[i] = src._array[i];
 			}
 			return *this;
@@ -62,24 +62,24 @@ class Array
 		{
 			if (index >= this->_size)
 				throw NotInRange();
-			return (this->_array[index])
+			return (this->_array[index]);
 		}
 
 
 		/*	EXCEPTION	*/
 		class NotInRange : public std::exception
 		{
-			const char *what(), const throw()
+			const char *what() const throw()
 			{
 				return ("Error: You are trying to access an unallocated location");
-			}
+			};
 		};
 
 
 		/*	MEMBER FUNCTION	*/
 		unsigned int	size(void) const
 		{
-			return (this->size);
+			return (this->_size);
 		}
 
 	private :
