@@ -6,7 +6,7 @@
 /*   By: vahemere <vahemere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 05:22:42 by vahemere          #+#    #+#             */
-/*   Updated: 2022/12/19 14:28:58 by vahemere         ###   ########.fr       */
+/*   Updated: 2022/12/19 14:39:35 by vahemere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int main(void)
 	std::cout << "======= Other tests: =======" << std::endl;
 	
 	std::list<int> lst;
-	
+		
 	lst.push_back(5);
 	lst.push_back(17);
 	
@@ -88,6 +88,18 @@ int main(void)
 	lite = lst.end();
 	while (lit != lite)
 		std::cout << *lit++ << std::endl;
+	std::cout << "===============" << std::endl;
+	std::cout << std::endl;
+	/*===============================================*/
+
+	std::cout << "test iterator with the copy list in const" << std::endl;
+	const std::list<int> lst2 = const_cast<const std::list<int>&>(lst);
+	/*===============================================*/
+	std::cout << "display const stack: " << std::endl;
+	std::list<int>::const_iterator clit = lst2.begin();
+	std::list<int>::const_iterator clite = lst2.end();
+	while (clit != clite)
+		std::cout << *clit++ << std::endl;
 	std::cout << "===============" << std::endl;
 	std::cout << std::endl;
 	/*===============================================*/
